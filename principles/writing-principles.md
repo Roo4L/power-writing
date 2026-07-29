@@ -78,7 +78,9 @@ A 30-minute interview for a 5-minute Jira issue is a bug. A 30-minute interview 
 ### Rule 6 — Smart defaults, escalate
 **The rule:** Infer the Brief from available context and proceed on sensible defaults. Ask a question **only** when a fork is genuinely ambiguous **and** getting it wrong is expensive (high stakes or long text). Smart defaults beat wizards.
 
-**The check:** Before asking anything, try to answer it yourself from context. If a confident default exists, use it and move. Reserve questions for the choices that would actually change the output *and* are worth the operator's attention under Rule 5.
+**Prefer confirmable defaults over open-ended questions.** When you *do* surface something, present your inferred answer for the operator to accept or correct — not a blank question. *"Reading this as: goal = inform infra, audience = new to the service — right?"* costs a nod; *"What's the goal? Who's the audience?"* costs an essay. This is the default when reviewing an existing draft (see the skill's Critique path): reconstruct the Brief, show it back as defaults, let the operator tweak one field instead of answering a questionnaire.
+
+**The check:** Before asking anything, try to answer it yourself from context. If a confident default exists, either use it and move (low stakes) or show it for one-nod confirmation (worth a checkpoint). Reserve genuinely open questions for forks you truly cannot infer *and* that would change the output.
 
 ---
 
