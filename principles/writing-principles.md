@@ -25,7 +25,7 @@ Text is never written for its own sake. It exists to move a specific reader towa
 
 **The Text (apply while writing; verify before delivering):**
 
-7. **Show, don't tell.** When the medium allows it, a diagram, table, or example replaces paragraphs of description. In plain-text media (email, Slack, Jira), structure — a list, a table, bolding — is the lightweight stand-in. Before a long paragraph, ask: *can this be shown instead?* [Tufte — show the data]
+7. **Show, don't tell.** A diagram, table, screenshot, or example replaces paragraphs of description. Nearly every medium supports it — even email, Slack, and Jira take an attached image or a table — so "the medium won't allow it" is rarely a real excuse; structure (a list, bolding) is the lightest form when a full visual is overkill. Before a long paragraph, ask: *can this be shown instead?* [Tufte — show the data]
 8. **Progressive disclosure.** Deliver the gist first; push detail into references, follow-ups, or optional sections a reader can dive into *if they need to*. Don't cram every detail inline. [Nielsen — progressive disclosure; journalism — the inverted pyramid]
 9. **Less is more.** The reader's time is the scarcest resource in the document. Cut noise, redundant examples, and throat-clearing. Sharper beats longer. This is not an entertainment book. [Strunk & White — "omit needless words"; Zinsser; Orwell]
 10. **Start lean, build up.** The first draft carries only what matters — not every thought the author had. It is far cheaper to elaborate a thin draft than to review and cut a bloated one; dumping everything explodes the reviewer's time. Draft small, add on request.
@@ -87,13 +87,11 @@ A 30-minute interview for a 5-minute Jira issue is a bug. A 30-minute interview 
 Four rules for the words themselves. They share one enemy: text that costs the reader more time and attention than it should.
 
 ### Rule 7 — Show, don't tell
-**The rule:** Prefer showing over describing. A diagram, table, example, or screenshot often conveys — faster and more simply — what a two-page walkthrough labors to explain.
+**The rule:** Prefer showing over describing. A diagram, table, chart, example, or screenshot often conveys — faster and more simply — what a two-page walkthrough labors to explain.
 
-**Conditional on medium:**
-- **Rich media** (docs, reports, pages, decks): when a paragraph describes a structure, comparison, sequence, or set of numbers, ask whether a **visual** (diagram / table / chart) does it better. Usually it does.
-- **Plain-text media** (email, Slack, Jira): you can't draw, so use **structure** as the lightweight visual — a bulleted list, a small table, a bolded key line, a short code block.
+**Almost every medium supports it.** Docs, reports, pages, and decks take visuals natively — but so do email, Slack, and Jira: you can attach a screenshot or an image, drop in a table, or paste a short code block. *"The medium won't allow it"* is rarely a real excuse. When a full visual is overkill, plain **structure** — a bulleted list, a small table, a bolded key line — is the lightest form of showing.
 
-**The check:** Before committing a long descriptive paragraph, ask *"can I show this instead of telling it?"* If yes, and the medium allows, show it. [Tufte]
+**The check:** Before committing a long descriptive paragraph, ask *"can I show this — an image, table, diagram, or example — instead of telling it?"* If yes, show it. [Tufte]
 
 ### Rule 8 — Progressive disclosure
 **The rule:** Lead with the gist; layer detail so the reader takes only as much as they need. Forward to a reference, a follow-up doc, or a collapsible/optional section instead of inlining every detail.

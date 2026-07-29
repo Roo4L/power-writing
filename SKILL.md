@@ -47,7 +47,7 @@ Governed by two meta-rules:
 
 Once the Brief holds, write — applying **Pillar 2** of the principles the whole way:
 
-- **Show, don't tell** — replace description with a diagram/table/example where the medium allows; in plain text, use lists/tables/bold as the lightweight visual.
+- **Show, don't tell** — replace description with a diagram, table, screenshot, or example; nearly every medium takes one (even email/Slack/Jira accept an image or a table), and plain structure (lists, bold) is the lightest form.
 - **Progressive disclosure** — gist first; push detail to references, follow-ups, or optional sections.
 - **Less is more** — the reader's time is the scarcest resource; cut noise, not meaning.
 - **Start lean, build up** — deliver the *smallest* draft that achieves the goal. Don't write every thought; invite the operator to point at what to expand.

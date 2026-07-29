@@ -40,7 +40,7 @@ Governed by two dials:
 ### Pillar 2 — The Text
 Four rules for the words:
 
-1. **Show, don't tell** — a diagram, table, or example beats paragraphs of description; in plain text, structure (lists, tables, bold) is the lightweight stand-in.
+1. **Show, don't tell** — a diagram, table, screenshot, or example beats paragraphs of description; nearly every medium takes one (even email/Slack/Jira), and structure (lists, bold) is the lightest form.
 2. **Progressive disclosure** — gist first; push detail to references, follow-ups, or optional sections.
 3. **Less is more** — the reader's time is the scarcest resource; cut noise, not meaning.
 4. **Start lean, build up** — deliver the smallest draft that does the job; elaborate on request.
