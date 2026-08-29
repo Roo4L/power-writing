@@ -17,7 +17,7 @@ Text is never written for its own sake. It exists to move a specific reader towa
 **The Brief (resolve before writing):**
 
 1. **Define the goal — the single job.** Every text does one primary thing: convey a thought, inform, sell, advertise, or document. Name it before writing. Beware the **goal-gap** — the operator and the agent silently assuming different jobs. [classical rhetoric: purpose]
-2. **Map the audience by what they know, not by their name.** The label ("the infra team") is not the point; what they *already know vs. don't* is. That gap sets the detail level — explain the gaps, omit shared knowledge. [Gopen & Swan; Pinker — the curse of knowledge]
+2. **Map the audience by what they know, not by their name.** The label ("the infra team") is not the point; what they *already know vs. don't* is. That gap sets both the **detail level** (explain the gaps, omit shared knowledge) and the **language** (every internal term gets kept, explained, or replaced). [Gopen & Swan; Pinker — the curse of knowledge]
 3. **Choose the form — style *and* format.** The same content is a storytelling blog post *or* a sharp monthly report. Pick one on purpose; they are not interchangeable.
 4. **Capture the constraints.** Hard limits: length cap, deadline, must-include, and — most overlooked — must-**avoid** / non-goals.
 5. **Scale the Brief to the task (proportionality).** The interview must never cost the operator more than writing the text themselves would. A Jira issue gets one question or none; a 100-page report earns a real interview. Ask: *"how long would this take the operator alone?"* — the Brief must stay well under that.
@@ -46,13 +46,23 @@ Before quality text, a short interview. Its depth scales to the task (Rule 5); i
 **The check:** State the goal in one sentence. If the goal implies a genre (pitch vs. docs, reminder vs. spec), confirm the genre — that's where the gap hides.
 
 ### Rule 2 — Map the audience by knowledge
-**The rule:** Identify the reader *and* — the part that actually drives the writing — what they already know versus what they don't. Detail level is a function of that gap, not of the topic.
+**The rule:** Identify the reader *and* — the part that actually drives the writing — what they already know versus what they don't. That gap, not the topic, sets both the **detail level** and the **language**.
 
-**Why it matters:** Explaining the same concept to a teammate and to the infra team requires different language and different detail.
+**Detail** — *how much* to say. Explaining the same concept to a teammate and to the infra team requires different depth.
 - **Teammate** on your service: skip the internals — you both know them by heart. Extra explanation is noise.
 - **Infra**, hearing about your service for the first time: they may genuinely need where it lives, how it's hosted, its address, its stack — omitting it blocks them.
 
-**The check:** For the chosen audience, list what to **omit** (shared knowledge → noise) and what to **explain** (their gaps → required). Write to that list. This is the antidote to the curse of knowledge — you know too much to see what they're missing.
+**Language** — *in whose terms*. Every internal name (repo, tool, acronym, ticket ID) gets one of three moves:
+
+| The term is… | Move |
+|---|---|
+| shared vocabulary | **keep** — the handle is the fastest, most precise word |
+| unknown but load-bearing — they must act on it | **explain** once, briefly |
+| unknown and *not* load-bearing | **replace** — name the service or process they actually track |
+
+**The trap:** defaulting to *explain*. A gloss adds words; a substitution costs none (Rule 9). If the reader never needs the handle, the term isn't under-explained — it's the wrong noun, and usually a sign you're at the wrong altitude. It cuts both ways: `weekly-report-automation` is the *precise* word to a teammate, and "the automation that produces the weekly report" is the vague one. For a mixed audience, lead in the outer reader's language and keep the handle in parentheses (Rule 8).
+
+**The check:** For the chosen audience, list what to **omit** (shared knowledge → noise) and what to **explain** (their gaps → required). Then sweep the draft's proper nouns and internal names: keep, explain, or replace. This is the antidote to the curse of knowledge — you know too much to see what they're missing, *and* which of your words are private.
 
 ### Rule 3 — Choose the form (style + format)
 **The rule:** Decide the style *and* the format deliberately. The same story delivered two ways:
@@ -127,6 +137,7 @@ Four rules for the words themselves. They share one enemy: text that costs the r
 - **Ask what you could infer** — questions that don't change the output, or whose answer is obvious from context. Rule 6.
 - **Confuse the genre** — docs written as a pitch, a reminder written as a spec. Rule 1.
 - **Write to the topic instead of to the reader** — dumping internals on someone who needs them, or re-explaining what the reader knows cold. Rule 2.
+- **Speak in private nouns** — naming a repo, tool, or ticket as if the reader shares it, when the service or process it serves is what they actually track. Rule 2.
 - **Describe what you could show** — a paragraph where a table or diagram is clearer. Rule 7.
 - **Inline everything** — burying the gist under detail that belonged in a reference. Rule 8.
 - **Pad** — extra examples and caveats that add length, not meaning. Rule 9.

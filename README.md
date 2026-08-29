@@ -23,7 +23,7 @@ It runs two ways: **draft** new text from a short brief, or **review** an existi
 | Element | What it pins down |
 |---|---|
 | **Goal** | the single job: convey · inform · sell · advertise · document |
-| **Audience** | mapped by what they *know vs. don't* — that gap sets the detail level |
+| **Audience** | mapped by what they *know vs. don't* — that gap sets detail **and** vocabulary |
 | **Form** | style + format (storytelling blog ↔ sharp report) |
 | **Constraints** | length cap, deadline, must-include, must-avoid |
 
