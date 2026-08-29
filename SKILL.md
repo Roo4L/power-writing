@@ -30,7 +30,7 @@ If the request makes it obvious ("draft a Jira issue for…", "write a landing p
 Establish five things before drafting. **Read `principles/writing-principles.md` §Pillar 1 for the full rules.** In short:
 
 1. **Goal** — the single job (convey / inform / sell / advertise / document). Watch the **goal-gap**: confirm the *genre* when the goal implies one (pitch vs. docs, reminder vs. spec).
-2. **Audience** — mapped by what they *know vs. don't*, not by their label. That gap sets detail level: omit what they know, explain what they don't.
+2. **Audience** — mapped by what they *know vs. don't*, not by their label. That gap sets **detail** *and* **language**: omit what they know, explain what they don't, and **replace** internal handles (repo / tool names) they don't need with the service or process they track.
 3. **Form** — style *and* format (storytelling blog ↔ sharp report; post / issue / page / message).
 4. **Constraints** — length cap, deadline, must-include, and must-**avoid** / non-goals.
 
@@ -56,7 +56,7 @@ Once the Brief holds, write — applying **Pillar 2** of the principles the whol
 
 ### Pre-delivery checklist (every text)
 - [ ] **#1 Goal** — one clear job; genre matches it (no docs-as-pitch, no reminder-as-spec).
-- [ ] **#2 Audience** — written to their knowledge gap; shared knowledge omitted, real gaps explained.
+- [ ] **#2 Audience** — written to their knowledge gap; shared knowledge omitted, real gaps explained, and every internal name kept, explained, or replaced for *this* reader.
 - [ ] **#3 Form** — chosen style + format held consistently (no entertaining register in a sharp report).
 - [ ] **#4 Constraints** — length cap / deadline respected; must-includes present; non-goals honored.
 - [ ] **#5 Proportionality** — the Brief effort stayed under the cost of the task itself.
