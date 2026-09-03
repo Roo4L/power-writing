@@ -6,7 +6,7 @@
 The ruleset has two pillars, applied in order:
 
 - **Pillar 1 — The Brief.** Establish *why*, *for whom*, and *in what form* before writing a word.
-- **Pillar 2 — The Text.** Four rules that govern the words themselves.
+- **Pillar 2 — The Text.** Five rules that govern the words themselves.
 
 Text is never written for its own sake. It exists to move a specific reader toward a specific goal. Both pillars serve that one fact.
 
@@ -23,12 +23,13 @@ Text is never written for its own sake. It exists to move a specific reader towa
 5. **Scale the Brief to the task (proportionality).** The interview must never cost the operator more than writing the text themselves would. A Jira issue gets one question or none; a 100-page report earns a real interview. Ask: *"how long would this take the operator alone?"* — the Brief must stay well under that.
 6. **Smart defaults, escalate.** Infer goal/audience/form/constraints from context and proceed. Ask **only** when a choice is genuinely ambiguous *and* getting it wrong is costly (high stakes or long text). Don't run a wizard for a two-line message.
 
-**The Text (apply while writing; verify before delivering):**
+**The Text (apply while writing; verify before delivering — Rule 11 is a sweep of the finished draft):**
 
 7. **Show, don't tell.** A diagram, table, screenshot, or example replaces paragraphs of description. Nearly every medium supports it — even email, Slack, and Jira take an attached image or a table — so "the medium won't allow it" is rarely a real excuse; structure (a list, bolding) is the lightest form when a full visual is overkill. Before a long paragraph, ask: *can this be shown instead?* [Tufte — show the data]
 8. **Progressive disclosure.** Deliver the gist first; push detail into references, follow-ups, or optional sections a reader can dive into *if they need to*. Don't cram every detail inline. [Nielsen — progressive disclosure; journalism — the inverted pyramid]
 9. **Less is more.** The reader's time is the scarcest resource in the document. Cut noise, redundant examples, and throat-clearing. Sharper beats longer. This is not an entertainment book. [Strunk & White — "omit needless words"; Zinsser; Orwell]
 10. **Start lean, build up.** The first draft carries only what matters — not every thought the author had. It is far cheaper to elaborate a thin draft than to review and cut a bloated one; dumping everything explodes the reviewer's time. Draft small, add on request.
+11. **Cut the machine texture.** Rules 9 and 10 govern how *much* you write; this one governs how it *reads*. Sweep the finished text for the machine fingerprint — antithesis flips, throat-clearing, padding phrases, hype vocabulary, metronomic rhythm — under two guards: a flagged word is not automatically wrong, and a paragraph of clean words can still say nothing. Catalogue: [`slop-patterns.md`](slop-patterns.md).
 
 ---
 
@@ -96,7 +97,7 @@ A 30-minute interview for a 5-minute Jira issue is a bug. A 30-minute interview 
 
 # Pillar 2 — The Text
 
-Four rules for the words themselves. They share one enemy: text that costs the reader more time and attention than it should.
+Five rules for the words themselves. They share one enemy: text that costs the reader more time and attention than it should.
 
 ### Rule 7 — Show, don't tell
 **The rule:** Prefer showing over describing. A diagram, table, chart, example, or screenshot often conveys — faster and more simply — what a two-page walkthrough labors to explain.
@@ -128,6 +129,24 @@ Four rules for the words themselves. They share one enemy: text that costs the r
 
 **The check:** Before delivering a first draft, ask *"have I included things because they matter, or because I thought of them?"* Cut the latter. Deliver the smallest draft that achieves the goal, and invite the operator to point at what to expand.
 
+### Rule 11 — Cut the machine texture
+**The rule:** Sweep the finished text for the machine fingerprint — the word- and sentence-level texture that survives every other rule on this page. The full catalogue lives in [`slop-patterns.md`](slop-patterns.md); the recurring offenders are antithesis flips ("it's not X, it's Y"), throat-clearing ("let's dive in"), hype frames ("in a world where…"), engagement bait ("I hope this helps"), padding phrases ("it's worth noting"), a known vocabulary (*delve*, *seamless*, *unlock*, *game-changer*, *cutting-edge*), decorative emoji, and metronomic sentence rhythm.
+
+**Why it's a separate rule.** Rules 9 and 10 govern *volume*; this one governs *texture*. A text can be short, lean, layered, and correctly aimed at its reader — passing 1 through 10 — and still read unmistakably as machine output. Cutting words does not touch the fingerprint, because the fingerprint is in the words that remain.
+
+**Why it's aimed at agents specifically.** This is the one rule a model cannot check by consulting its intent. These patterns *are* its defaults, so from the inside they feel like neutral prose rather than a tell. The only reliable move is an explicit sweep against a written list — which is why this rule delegates to a catalogue instead of trusting judgment.
+
+**Two guards outrank the lists** (both detailed in the reference):
+
+1. **A flagged word is not automatically wrong.** Classify before cutting — filler, term of art, code/legal wording, quoted material, deliberate voice, or evidence-backed claim. Only filler goes automatically. `critical section` and `public key` contain flagged words and are the correct words.
+2. **Clean words are not content.** A paragraph can pass every list and still be empty. Each one should carry something concrete: an example, a mechanism, a number from the source, a named system, a tradeoff, a constraint, an observable consequence. If it carries none, compress or cut it — never *fill* it, which would break the harder prohibition below.
+
+**The hard prohibition:** never invent a fact to fix a weak sentence. Vague claims get made *honest*, not *impressive*. "The tool improves performance" becomes "the tool aims to improve performance" — not "the tool cuts latency by 40%."
+
+**Edit strength is proportional too** (Rule 5's logic, applied to editing rather than interviewing). Score the draft 0–5 and use the lowest intervention that solves the problem. Already-clean prose gets left alone, and an idiosyncratic human voice is not slop — over-editing a nearly-clean draft into house style is the more common failure once you have a list in hand.
+
+**The check:** Run the sweep in [`slop-patterns.md`](slop-patterns.md) — guards first, then patterns, then texture and shape. For text going into a file, repo, or published page, also run the deterministic pass for invisible characters and confusable punctuation (`scripts/strip-invisibles.py`); those are a genuine fingerprint and they cannot be seen by reading.
+
 ---
 
 ## What not to do
@@ -142,5 +161,10 @@ Four rules for the words themselves. They share one enemy: text that costs the r
 - **Inline everything** — burying the gist under detail that belonged in a reference. Rule 8.
 - **Pad** — extra examples and caveats that add length, not meaning. Rule 9.
 - **Dump the first draft** — every thought on the page, handing the operator a cutting job instead of a reading one. Rule 10.
+- **Ship the machine fingerprint** — a lean, well-aimed text that still opens with "let's dive in", flips an antithesis, and closes on "I hope this helps." Rule 11.
+- **Apply the slop lists as find-and-replace** — deleting *critical* out of "critical section", or swapping flagged words out of an empty paragraph and calling it edited. Rule 11, Guards 1 and 2.
+- **Invent specifics to fix vagueness** — a fabricated number is worse than the vague sentence it replaced. Rule 11.
 
 When in doubt, re-read this file. It is the source of truth for the skill.
+
+Two files support it: [`slop-patterns.md`](slop-patterns.md) (the Rule 11 catalogue, loaded on demand) and `scripts/strip-invisibles.py` (its one deterministic check).
