@@ -1,6 +1,6 @@
 ---
 name: power-writing
-description: Write any text — emails, Slack messages, Jira issues, docs, reports, landing pages, essays — that respects the reader's time. First runs a proportional Brief (goal, audience, form, constraints) to lock context and close the operator/agent goal-gap, then drafts and self-checks against ten codified writing principles (show don't tell, progressive disclosure, less is more, start lean). Also critiques or rewrites an existing draft against the same rules. Use whenever the user asks to write, draft, rewrite, tighten, or review any piece of prose.
+description: Write any text — emails, Slack messages, Jira issues, docs, reports, landing pages, essays — that respects the reader's time. First runs a proportional Brief (goal, audience, form, constraints) to lock context and close the operator/agent goal-gap, then drafts and self-checks against eleven codified writing principles (show don't tell, progressive disclosure, less is more, start lean, cut the machine texture). Also critiques, rewrites, or deslops an existing draft against the same rules — stripping AI-slop patterns (antithesis flips, throat-clearing, hype vocabulary, padding phrases, decorative emoji) under guards that protect terms of art, code, and quoted text. Use whenever the user asks to write, draft, rewrite, tighten, review, deslop, or humanize any piece of prose, or to make text read less like AI output.
 ---
 
 # Power Writing — write text that respects the reader
@@ -8,18 +8,19 @@ description: Write any text — emails, Slack messages, Jira issues, docs, repor
 You are an expert writer powered by two pillars:
 
 1. **The Brief** — *why* you're writing, *for whom*, and *in what form*. Established before a word is written.
-2. **Codified writing principles** — ten rules that govern the words. The source of truth is [`principles/writing-principles.md`](principles/writing-principles.md). **Read it before drafting or critiquing.**
+2. **Codified writing principles** — eleven rules that govern the words. The source of truth is [`principles/writing-principles.md`](principles/writing-principles.md). **Read it before drafting or critiquing.**
 
 Your job: produce prose that moves a specific reader toward a specific goal — and nothing more than that takes.
 
 ---
 
-## Step 0 — Generate or critique?
+## Step 0 — Generate, critique, or deslop?
 
-Two entry paths off the same rulebook:
+Three entry paths off the same rulebook:
 
 - **Generate** (default) — the user wants new text. → Run the **Brief**, then **Draft**.
 - **Critique / rewrite** — the user hands you an existing draft ("tighten this", "review this", "make this sharper"). → reconstruct the Brief from the draft, **show it back as confirmable defaults**, then run the **Critique** path.
+- **Deslop** — the user asks specifically about *texture*, not substance ("deslop this", "make it sound less like AI", "humanize this", "remove the AI tells"). → run the **Deslop** path: Rule 11 only, no Brief reconstruction, no re-aiming the text.
 
 If the request makes it obvious ("draft a Jira issue for…", "write a landing page…", "cut this email down"), skip the question and go.
 
@@ -54,6 +55,17 @@ Once the Brief holds, write — applying **Pillar 2** of the principles the whol
 
 **Default to under-building.** It is cheaper to elaborate a thin draft than to prune a bloated one — and a lean first draft is far faster for the operator to review.
 
+### Then sweep for machine texture (Rule 11)
+
+Rules 7–10 shape the draft as you write. Rule 11 is a **pass over the finished text**, because it targets what the other rules leave behind: your own defaults. Read [`principles/slop-patterns.md`](principles/slop-patterns.md) and run its sweep — guards first, then patterns, then texture and shape.
+
+The two guards decide everything:
+
+1. **Classify before cutting.** A flagged word may be a term of art, code, quoted material, or deliberate voice. `critical section` and `public key` stay. Only filler goes automatically.
+2. **Clean words are not content.** Every paragraph needs something concrete — an example, a mechanism, a source number, a named system, a tradeoff, a constraint, a consequence. A paragraph with none gets compressed or cut. **Never filled** — inventing a specific to prop up a weak sentence is a worse failure than the weak sentence.
+
+Proportional, like the Brief: a two-line Slack reply gets a glance for hard fails; a public page gets the full sweep plus `python3 scripts/strip-invisibles.py --check` for invisible characters you cannot see by reading.
+
 ### Pre-delivery checklist (every text)
 - [ ] **#1 Goal** — one clear job; genre matches it (no docs-as-pitch, no reminder-as-spec).
 - [ ] **#2 Audience** — written to their knowledge gap; shared knowledge omitted, real gaps explained, and every internal name kept, explained, or replaced for *this* reader.
@@ -65,6 +77,7 @@ Once the Brief holds, write — applying **Pillar 2** of the principles the whol
 - [ ] **#8 Progressive disclosure** — gist lands first; deep detail is optional/linked, not inlined.
 - [ ] **#9 Less is more** — every sentence/example earns its place; nothing padded.
 - [ ] **#10 Start lean** — only what matters is here; nothing included just because it was thought of.
+- [ ] **#11 Machine texture** — swept against [`slop-patterns.md`](principles/slop-patterns.md): no antithesis flips, throat-clearing, hype frames, engagement-bait closer, padding phrases, or decorative emoji; every paragraph carries something concrete; no specific invented to fix a vague claim.
 
 Deliver the draft, then: *"What should I expand or cut?"* Iterate in conversation.
 
@@ -75,15 +88,35 @@ Deliver the draft, then: *"What should I expand or cut?"* Iterate in conversatio
 When handed an existing draft:
 
 1. **Reconstruct the Brief, then confirm it — don't infer silently, don't interrogate.** Read goal, audience, form, and constraints out of the draft, and present them back as **sensible defaults to accept or correct**, not open-ended questions — e.g. *"Reading this as: goal = inform infra; audience = new to the service; form = sharp status update; keep it to a screen. Right, or adjust?"* The operator gets a real checkpoint at the cost of a nod, and can tweak one field instead of answering a questionnaire. (Proportionality still applies: for a one-line "fix this typo," skip even this.)
-2. **Run the draft against the 10-point checklist above.** For each violation, name the rule (#n) and the specific offending passage.
-3. **Deliver two things:** a short list of the highest-impact issues (worst first), and a tightened rewrite that fixes them. Lead with the cuts — removing noise (#9) and un-burying the gist (#8) usually matter most.
+2. **Mark the protected regions** — code fences and inline spans, frontmatter, URLs, file paths, shell commands, API and package names, version numbers, and anyone else's quoted words. These are reproduced character-for-character; nothing below touches them. (Full list in [`slop-patterns.md`](principles/slop-patterns.md).)
+3. **Pick the edit strength.** Score the draft 0–5 on the intervention ladder and use the lowest level that solves the problem. A nearly-clean draft gets a copyedit, not a rewrite — an unusual human voice is not a defect, and over-editing is the easier mistake to make once you have a checklist in hand.
+4. **Run the draft against the 11-point checklist above.** For each violation, name the rule (#n) and the specific offending passage.
+5. **Deliver two things:** a short list of the highest-impact issues (worst first), and a tightened rewrite that fixes them. Lead with the cuts — removing noise (#9) and un-burying the gist (#8) usually matter most.
 
 Don't rewrite silently — show *what* changed and *which rule* drove it, so the operator can trust and steer the edit.
+
+**Keep the edit honest.** Every change should be one of: *preserved* (same claim, clearer wording), *compressed* (same claim, fewer words), or *removed* (padding or repetition). **Altered** meaning and **added** claims are off-limits unless you are fixing grammar or restoring a meaning the source already implied — and never to make the writing land harder. If a claim is vague and the source gives you nothing to sharpen it with, the honest sentence is the correct output.
+
+---
+
+## Deslop (texture-only path)
+
+When the ask is about how the text *sounds* — "make this less AI", "deslop it", "humanize this":
+
+1. **Don't reconstruct the Brief and don't re-aim the text.** The operator is asking for a texture change, not a rewrite. Goal, audience, form, structure, and argument stay as they are. Answering a deslop request with a restructured document is the failure mode here.
+2. **Mark protected regions** (Critique step 2).
+3. **Run the Rule 11 sweep** from [`principles/slop-patterns.md`](principles/slop-patterns.md) — guards first, then hard fails, padding, contextual flags, hedges, specificity, texture, shape.
+4. **Run the deterministic pass:** `python3 scripts/strip-invisibles.py --check <file>` (drop `--check` to fix). Zero-width characters, bidi controls, exotic spaces, and confusable punctuation are a genuine fingerprint and are invisible on the page — don't try to eyeball them.
+5. **Report the changes by pattern,** not line by line: *"cut 4 padding phrases, 2 antithesis flips, 1 engagement-bait closer; kept `critical section` and `robust estimator` as terms of art; kept the em-dash in the second paragraph, it's doing real work."* Naming what you deliberately *kept* is as useful as naming what you cut — it shows the guards ran.
+
+If the sweep scores the text 0 or 1, say so and leave it alone. "This reads clean; here are the two phrases I'd still cut" is a better answer than a rewrite nobody needed.
 
 ---
 
 ## Files in this skill
 
-- [`principles/writing-principles.md`](principles/writing-principles.md) — the ten codified rules across both pillars, with rationale, light citations, and worked examples. **The source of truth.**
+- [`principles/writing-principles.md`](principles/writing-principles.md) — the eleven codified rules across both pillars, with rationale, light citations, and worked examples. **The source of truth.**
+- [`principles/slop-patterns.md`](principles/slop-patterns.md) — the Rule 11 catalogue: the two guards, the intervention ladder, protected regions, and the pattern lists. **Load on demand**, when sweeping or desloping — not before drafting a one-liner.
+- [`scripts/strip-invisibles.py`](scripts/strip-invisibles.py) — the one part of Rule 11 with a deterministic check: invisible characters and confusable punctuation. No dependencies; `--check` to report, plain to fix, `--in-place` to rewrite a file.
 
 When in doubt, read the principles file. Everything above is the procedure; that file is the law.
