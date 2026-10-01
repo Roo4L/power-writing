@@ -17,7 +17,7 @@ Text is never written for its own sake. It exists to move a specific reader towa
 **The Brief (resolve before writing):**
 
 1. **Define the goal — the single job.** Every text does one primary thing: convey a thought, inform, sell, advertise, or document. Name it before writing. Beware the **goal-gap** — the operator and the agent silently assuming different jobs. [classical rhetoric: purpose]
-2. **Map the audience by what they know, not by their name.** The label ("the infra team") is not the point; what they *already know vs. don't* is. That gap sets both the **detail level** (explain the gaps, omit shared knowledge) and the **language** (every internal term gets kept, explained, or replaced). [Gopen & Swan; Pinker — the curse of knowledge]
+2. **Map the audience by what they know, not by their name.** The label ("the infra team") is not the point; what they *already know vs. don't* is. That gap sets both the **detail level** (explain the gaps, omit shared knowledge) and the **language** (any term that isn't common knowledge *for this reader* gets explained or replaced with plain words). [Gopen & Swan; Pinker — the curse of knowledge]
 3. **Choose the form — style *and* format.** The same content is a storytelling blog post *or* a sharp monthly report. Pick one on purpose; they are not interchangeable.
 4. **Capture the constraints.** Hard limits: length cap, deadline, must-include, and — most overlooked — must-**avoid** / non-goals.
 5. **Scale the Brief to the task (proportionality).** The interview must never cost the operator more than writing the text themselves would. A Jira issue gets one question or none; a 100-page report earns a real interview. Ask: *"how long would this take the operator alone?"* — the Brief must stay well under that.
@@ -52,17 +52,19 @@ Before quality text, a short interview. Its depth scales to the task (Rule 5); i
 - **Teammate** on your service: skip the internals — you both know them by heart. Extra explanation is noise.
 - **Infra**, hearing about your service for the first time: they may genuinely need where it lives, how it's hosted, its address, its stack — omitting it blocks them.
 
-**Language** — *in whose terms*. Every internal name (repo, tool, acronym, ticket ID) gets one of three moves:
+**Language** — *in whose terms*. Every term that isn't common knowledge for this reader gets one of three moves. That means internal names (repo, tool, acronym, ticket ID), but also team jargon, made-up phrases, and specialist terms from outside the reader's field. Common knowledge is what this reader shares by default: company-wide vocabulary for a colleague, the general vocabulary of software engineering for an engineer. Anything narrower doesn't count.
 
 | The term is… | Move |
 |---|---|
-| shared vocabulary | **keep** — the handle is the fastest, most precise word |
+| common knowledge for this reader | **keep** — the handle is the fastest, most precise word |
 | unknown but load-bearing — they must act on it | **explain** once, briefly |
 | unknown and *not* load-bearing | **replace** — name the service or process they actually track |
 
 **The trap:** defaulting to *explain*. A gloss adds words; a substitution costs none (Rule 9). If the reader never needs the handle, the term isn't under-explained — it's the wrong noun, and usually a sign you're at the wrong altitude. It cuts both ways: `weekly-report-automation` is the *precise* word to a teammate, and "the automation that produces the weekly report" is the vague one. For a mixed audience, lead in the outer reader's language and keep the handle in parentheses (Rule 8).
 
-**The check:** For the chosen audience, list what to **omit** (shared knowledge → noise) and what to **explain** (their gaps → required). Then sweep the draft's proper nouns and internal names: keep, explain, or replace. This is the antidote to the curse of knowledge — you know too much to see what they're missing, *and* which of your words are private.
+**The blind spot: made-up phrases.** A term built from ordinary words, such as "production-equivalent cost", doesn't look like jargon, so a search for names misses it. These phrases usually come from source material (a commit message, a ticket title, a code comment) where they were the author's shorthand, and they get copied word for word. The test for any term: *could this reader explain it back in plain words?* If not, it isn't common knowledge. Apply the same test to yourself: if you can't say concretely what the term means from the evidence you have, you don't know either. Find out, or describe only the effect you can verify. Never gloss a vague term with an equally vague sentence.
+
+**The check:** For the chosen audience, list what to **omit** (shared knowledge → noise) and what to **explain** (their gaps → required). Then check every term the reader might not share (proper nouns, internal names, and made-up or specialist phrases) and keep, explain, or replace each one. This is the antidote to the curse of knowledge — you know too much to see what they're missing, *and* which of your words are private.
 
 ### Rule 3 — Choose the form (style + format)
 **The rule:** Decide the style *and* the format deliberately. The same story delivered two ways:
@@ -138,6 +140,7 @@ Four rules for the words themselves. They share one enemy: text that costs the r
 - **Confuse the genre** — docs written as a pitch, a reminder written as a spec. Rule 1.
 - **Write to the topic instead of to the reader** — dumping internals on someone who needs them, or re-explaining what the reader knows cold. Rule 2.
 - **Speak in private nouns** — naming a repo, tool, or ticket as if the reader shares it, when the service or process it serves is what they actually track. Rule 2.
+- **Copy someone else's shorthand** — lifting a phrase from a commit message or ticket title into text for readers who never saw where it came from. Rule 2.
 - **Describe what you could show** — a paragraph where a table or diagram is clearer. Rule 7.
 - **Inline everything** — burying the gist under detail that belonged in a reference. Rule 8.
 - **Pad** — extra examples and caveats that add length, not meaning. Rule 9.
